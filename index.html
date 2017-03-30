@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+	<!-- Meta/Description -->
+	<meta charset="utf-8">
+	<title>Wordful Solver</title>
+	<meta name="description" content="Solve that impossible Wordful/Word Brain/Words Crush level.">
+	<meta name="keywords" content="solve, teaser, crossword, help, word, Wordful, WordBrain, Words Crush, SMART UP INC">
+	<link rel="icon" type="image/x-icon" href="http://wordfulsolver.com/favicon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#12489e" />
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="-1">
+	<!--  Open Graph -->
+	<meta property="og:title" content="Wordful Solver - Addictive Word Teasers Solver" />
+	<meta property="og:description" content="Solve that impossible Wordful/Word Brain/Words Crush level." />
+	<meta property="og:image" content="http://wordfulsolver.com/img/wordfulsolver.jpg" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Wordful Solver" />
+	<meta property="og:url" content="http://wordfulsolver.com" />
+	<!--  jQuery  -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- General js -->
+	<script src="js/general.js"></script>
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-92616575-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+</head>
+
+<body>
+	<h1>Wordful Solver</h1>
+	
+	<!-- Main Form to enter all words into -->
+	<form name="setup" id="setupForm" action="php/solver.php" method="post" autocomplete="off">
+	
+	<!-- Grid size input -->
+	<input type="hidden" name="GridSize" id="GridSize" value="4" />
+	
+	<!-- Grid letters inputs -->
+	<table class="board" id="GridBoard" data-size="4"><tbody>
+		<tr>
+			<td><input class="letter-tile" name="L11" id="L11" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required autofocus /></td>
+			<td><input class="letter-tile" name="L12" id="L12" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required /></td>
+			<td><input class="letter-tile" name="L13" id="L13" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required /></td>
+			<td><input class="letter-tile" name="L14" id="L14" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required /></td>
+		</tr>
+		<tr>
+			<td><input class="letter-tile" name="L21" id="L21" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required /></td>
+			<td><input class="letter-tile" name="L22" id="L22" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required /></td>
+			<td><input class="letter-tile" name="L23" id="L23" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required /></td>
+			<td><input class="letter-tile" name="L24" id="L24" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required /></td>
+		</tr>
+		<tr>
+			<td><input class="letter-tile" name="L31" id="L31" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required /></td>
+			<td><input class="letter-tile" name="L32" id="L32" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required /></td>
+			<td><input class="letter-tile" name="L33" id="L33" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required /></td>
+			<td><input class="letter-tile" name="L34" id="L34" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required /></td>
+		</tr>
+		<tr>
+			<td><input class="letter-tile" name="L41" id="L41" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required /></td>
+			<td><input class="letter-tile" name="L42" id="L42" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required /></td>
+			<td><input class="letter-tile" name="L43" id="L43" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required /></td>
+			<td><input class="letter-tile" name="L44" id="L44" maxlength="1" value="" title="Letter" pattern="[A-Za-z]{1}" required /></td>
+		</tr>
+	</tbody></table>
+	
+	<!-- Grid sizing buttons -->
+	<div class="GridSetup">
+		<button type="button" class="GridSetupBtn" title="Decease grid size" id="grid-minus"><i class="fa fa-minus"></i></button>
+		<button type="button" class="GridSetupBtn" title="Increase grid size" id="grid-plus"><i class="fa fa-plus"></i></button>
+	</div>
+		
+	<!-- Info title -->
+	<h2>Solved by 100% of the players ;)</h2>
+	
+	<!-- Words layout input -->
+	<div class="words" id="words">
+		<!-- Word count input -->
+		<input type="hidden" name="WordCount" id="WordCount" value="1" required>
+		
+		<!-- Words -->
+		<div class="word"><div class="letter blank"></div><button type="button" class="letter blank letter-minus" title="Remove this letter"><i class="fa fa-minus"></i></button><button type="button" class="letter letter-plus" title="Add another letter"><i class="fa fa-plus"></i></button>
+			<input type="hidden" class="WordLength" name="W1" id="W1" value="2" required>
+		</div><div class="word">
+			<button type="button" class="letter word-plus" title="Add another word"><i class="fa fa-plus"></i></button>
+		</div>
+	</div>
+	
+	<!-- Action (reset and solve) buttons -->
+	<div class="actions" id="actions">
+		<button type="reset" class="button plain reset" title="Reset"><i class="fa fa-refresh" aria-hidden="true"></i></button><button type="submit" class="button highlight solve" title="Find all the possible combinations"><i class="fa fa-check" aria-hidden="true"></i> Solve!</button>
+	</div>
+	
+	<!-- Error -->
+	<div class="ErrorMessage" id="ErrorMessage"></div>
+	
+	</form>
+	
+</body>
+</html>
