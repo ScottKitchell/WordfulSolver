@@ -1,5 +1,7 @@
-﻿# WordfulSolver
+# WordfulSolver
 WordfulSolver is a webapp that can solve most levels of the popular Android and iOS game [Wordful](https://play.google.com/store/apps/details?id=com.smartupinc.games.wordful).
+
+![Screenshot](https://github.com/ScottKitchell/WordfulSolver/raw/master/img/wordfulsolver_sm.jpg)
 
 ## Demo
 To see the site and do a little solving on the side go to [wordfulsolver.com](http://wordfulsolver.com).
